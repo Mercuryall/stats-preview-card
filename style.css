@@ -4,137 +4,136 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  background-color: hsl(233, 47%, 7%);
-  color: hsl(0, 0%, 100%);
-  font-family: "Inter", "Lexend Deca", sans-serif;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background: hsl(233, 47%, 7%);
+  display: flex;
+  align-items: center;
+  font-size: 15px;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: hsl(233, 47%, 7%);
-  height: 100vh;
-  padding: 20rem;
+  max-width: 1020px;
+  margin: 0 auto;
 }
 
-.business-info {
-  display: flex;
-  flex-direction: column;
+.wrapper {
   background-color: hsl(244, 38%, 16%);
-  border-radius: 10px 0 0 10px;
-  padding: 5.5rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 2rem;
 }
 
-h1 {
-  font-size: 3.2rem;
-  padding-bottom: 2.5rem;
-  padding-right: 2rem;
+.img-component img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-h1 span {
+.img-component {
+  position: relative;
+}
+
+.img-component::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: hsla(277, 64%, 61%, 0.6);
+}
+
+.text-component {
+  padding: 13%;
+}
+
+.title {
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  padding-bottom: 22px;
+}
+
+.title span {
   color: hsl(277, 64%, 61%);
 }
 
-.main-paragraph {
-  color: hsla(0, 0%, 100%, 0.6);
-  font-size: 1.3rem;
-  padding-bottom: 5.5rem;
-  padding-right: 9rem;
-  line-height: 1.5;
+.subtitle {
+  color: hsla(0, 0%, 100%, 0.75);
+  line-height: 1.8;
 }
 
-.img-box {
-  width: 100%;
-  height: 142%;
-  border-radius: 0 10px 10px 0;
-  background: linear-gradient(
-      0deg,
-      hsla(277, 76%, 30%, 0.5),
-      hsla(277, 76%, 30%, 0.6)
-    ),
-    url(./images/image-header-desktop.jpg);
-  background-size: cover;
-}
-
-.stat-headings {
-  font-size: 2rem;
+.stat-box {
   display: flex;
-  gap: 6rem;
-  font-weight: 700;
-}
-
-.stats {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-}
-
-.stats span {
-  font-size: 1rem;
-  font-weight: 700;
+  justify-content: space-between;
   text-transform: uppercase;
-  color: hsla(0, 0%, 100%, 0.6);
-  font-weight: 400;
-  letter-spacing: 0.1rem;
+  padding-top: 60px;
 }
 
-@media (max-width: 375px) {
+.stat-box p.num {
+  color: hsl(0, 0%, 100%);
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.stat-box p {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+@media only screen and (max-width: 768px) and (min-width: 426px) {
+  body {
+    font-size: 12px;
+  }
+
+  .text-component {
+    padding: 12%;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .stat-box {
+    padding-top: 30px;
+  }
+
+  .stat-box p.num {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
   body {
     text-align: center;
   }
 
-  .container {
-    flex-direction: column-reverse;
-    padding: 3rem 2rem;
+  .wrapper {
+    grid-template-columns: 1fr;
   }
 
-  .img-box {
-    background: linear-gradient(
-        0deg,
-        hsla(277, 76%, 30%, 0.3),
-        hsla(277, 76%, 30%, 0.4)
-      ),
-      url(./images/image-header-mobile.jpg);
-    background-repeat: no-repeat;
-    -moz-filter: opacity(0.5) drop-shadow(0 0 0 rgb(126, 17, 126));
-    filter: opacity(0.5) drop-shadow(0 0 0 rgb(126, 17, 126));
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+  .img-component {
+    order: -1;
   }
 
-  .business-info {
-    padding: 3.5rem 0;
-    border-radius: 0 0 10px 10px;
+  .text-component {
+    padding: 12% 8%;
   }
 
-  h1 {
-    font-size: 2.8rem;
-    padding: 0 3rem;
+  .title {
+    font-size: 23px;
+    line-height: 1.4;
   }
 
-  .main-paragraph {
-    font-size: 1.6rem;
-    padding: 2rem 3rem 5rem 3rem;
-  }
-
-  .stat-headings {
+  .stat-box {
     flex-direction: column;
-    gap: 3rem;
+    padding-top: 30px;
   }
 
-  .stats {
-    font-size: 2.5rem;
-  }
-
-  .stats span {
-    font-size: 1.4rem;
+  .stat-box div {
+    margin-top: 20px;
   }
 }
